@@ -1,0 +1,86 @@
+<!-- Author: Inga Silkworth-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title Script Description></title>
+    <!-- <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script> -->
+    <script type="text/javascript" src="../d3.js"></script>
+
+    <style>
+
+      .title {
+        font: 20px sans-serif;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+
+      .subtitle {
+        font: 15px sans-serif;
+        opacity: 0.65;
+        text-anchor: middle;
+      }
+
+      .notebar text {
+        fill: silver;
+        font: 14px sans-serif;
+        text-anchor: middle;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <script>
+
+      // set position/color variables
+      var outerWidth = 600;
+      var outerHeight = 400;
+      var padding = 10;
+
+      var margin = { left: 0, top: 100, right: 0, bottom: 100 };
+
+      var innerWidth  = outerWidth  - margin.left - margin.right;
+      var innerHeight = outerHeight - margin.top  - margin.bottom;
+
+      var titleY = 20;
+      var subtitleY = 43;
+      var noteY = 45;
+
+      var dataset, xScale, yScale;  //Empty, for now
+
+      var svg = d3.select("body").append("svg")
+          .attr("width", outerWidth)
+          .attr("height", outerHeight);
+
+      var g = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      // Open csv file
+
+
+      // Adding descriptive text
+      var titlesBox = svg.append("g")
+      var title = titlesBox.append("text")
+        .attr("class", "title")
+        .attr("y", titleY)
+        .attr("x", outerWidth / 2)
+        .text("This is a Title");
+      var description = titlesBox.append("text")
+        .attr("class", "subtitle")
+        .attr("y", subtitleY)
+        .attr("x", outerWidth / 2)
+        .text("This is a subtitle.");
+
+      var noteBar = svg.append("g")
+        .attr("class", "notebar");
+      var note = noteBar.append("text")
+        .attr("y", outerHeight - noteY)
+        .attr("dy", 0.5)
+        .attr("x", outerWidth / 2)
+        .text("This is a note bar.");
+
+    </script>
+  </body>
+</html>
